@@ -1,7 +1,10 @@
 package com.example.cofeeShop;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 import java.util.UUID;
 
@@ -13,9 +16,15 @@ public class CofeeShopApplication {
 	}
 
 }
+@Entity
 class Coffee {
-	private  final String id;
+	@Id
+	private   String id;
 	private String name;
+
+	public Coffee(){
+
+	}
 
 	public  Coffee (String id,String name){
 		this.id = id;
@@ -23,6 +32,10 @@ class Coffee {
 	}
 	public Coffee(String name){
 		this(UUID.randomUUID().toString(),name);
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getId() {
@@ -36,4 +49,5 @@ class Coffee {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }
